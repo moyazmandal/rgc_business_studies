@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Studies Hub | RGC Business Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --navy: #0a1f44;
+  --navy-light: #132b5c;
+  --gold: #d4af37;
+  --gold-light: #e8c96a;
+  --white: #ffffff;
+  --off-white: #f8f9fc;
+  --gray: #6b7280;
+  --shadow: 0 10px 40px rgba(10, 31, 68, 0.12);
+  --shadow-hover: 0 20px 50px rgba(10, 31, 68, 0.2);
+  --radius: 16px;
+  --success: #10b981;
+  --danger: #ef4444;
+  --facebook: #1877F2;
+  --whatsapp: #25D366;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background-color: var(--off-white);
+  color: var(--navy);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== Header ===== */
+.header {
+  background: var(--white);
+  padding: 16px 0;
+  box-shadow: 0 2px 20px rgba(10, 31, 68, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo-area img { height: 52px; width: auto; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-text .college-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.logo-text .club-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.header-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  border: 1px solid #c7d2fe;
+  white-space: nowrap;
+}
+.header-notice i { color: var(--gold); font-size: 16px; }
+
+/* ===== Hero ===== */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #1a3a6e 100%);
+  padding: 80px 24px 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -20%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  color: var(--white);
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.hero h1 .highlight { color: var(--gold); }
+.hero .subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+.hero .subtitle i { color: var(--gold-light); margin-right: 6px; }
+.hero-question {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 16px 32px;
+  border-radius: 60px;
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 30px 8px rgba(212, 175, 55, 0.15); }
+}
+.hero-question i { color: var(--gold); font-size: 1.4em; }
+
+/* ===== Cards Section ===== */
+.cards-section {
+  max-width: 1100px;
+  margin: -50px auto 0;
+  padding: 0 24px 60px;
+  position: relative;
+  z-index: 2;
+}
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 32px 32px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid rgba(10, 31, 68, 0.05);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  transition: height 0.3s ease;
+}
+.card.whatsapp::before { background: linear-gradient(90deg, #25D366, #128C7E); }
+.card.facebook::before { background: linear-gradient(90deg, #1877F2, #0d5bbd); }
+.card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+.card:hover::before { height: 7px; }
+
+.card-icon {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 36px;
+  transition: transform 0.3s ease;
+}
+.card:hover .card-icon { transform: scale(1.1) rotate(5deg); }
+.card.whatsapp .card-icon { background: linear-gradient(135deg, #e6f9ee, #d0f5e0); color: #25D366; }
+.card.facebook .card-icon { background: linear-gradient(135deg, #e8f0fe, #d4e4fc); color: #1877F2; }
+
+.card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.card p { font-size: 0.95rem; color: var(--gray); margin-bottom: 24px; line-height: 1.7; min-height: 52px; }
+
+.card-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.card-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.card-btn:hover::after { left: 100%; }
+.card-btn.whatsapp-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
+.card-btn.whatsapp-btn:hover { background: linear-gradient(135deg, #128C7E, #0d6e5e); transform: scale(1.02); }
+.card-btn.facebook-btn { background: linear-gradient(135deg, #1877F2, #0d5bbd); }
+.card-btn.facebook-btn:hover { background: linear-gradient(135deg, #0d5bbd, #094a99); transform: scale(1.02); }
+
+.info-popup {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 1px solid #fcd34d;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+.info-popup .popup-icon { color: #d97706; font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+.info-popup .popup-text { font-size: 0.85rem; color: #92400e; line-height: 1.6; }
+.info-popup .popup-text strong { display: block; font-size: 0.9rem; margin-bottom: 4px; color: #78350f; }
+.info-popup .popup-text .en { color: #a16207; font-style: italic; font-size: 0.82rem; }
+
+/* ===== Registration Section (Hidden by default) ===== */
+.registration-section {
+  display: none;
+  max-width: 900px;
+  margin: 40px auto 0;
+  padding: 0 24px 40px;
+  position: relative;
+  z-index: 3;
+  animation: slideDown 0.5s ease both;
+}
+.registration-section.show { display: block; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reg-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(10, 31, 68, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.reg-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--whatsapp), #128C7E);
+}
+
+.reg-header { text-align: center; margin-bottom: 30px; }
+.reg-header .reg-icon {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 30px;
+  color: var(--white);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
+.reg-header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.reg-header p { font-size: 0.95rem; color: var(--gray); max-width: 500px; margin: 0 auto; }
+
+.reg-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { margin-bottom: 20px; position: relative; }
+.form-group label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.form-group label .required { color: var(--danger); margin-left: 3px; }
+.form-group input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--navy);
+  background: var(--off-white);
+  transition: all 0.3s ease;
+  outline: none;
+}
+.form-group input:focus {
+  border-color: var(--whatsapp);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.12);
+}
+.form-group input::placeholder { color: #9ca3af; }
+.form-group .input-icon {
+  position: absolute;
+  left: 16px;
+  bottom: 15px;
+  color: var(--gray);
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+.form-group input:focus ~ .input-icon { color: var(--whatsapp); }
+
+.submit-btn {
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35); }
+.submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+/* ===== Success ===== */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 30px 20px;
+  animation: fadeInUp 0.5s ease both;
+}
+.success-message.show { display: block; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.success-icon {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 36px;
+  color: var(--success);
+  animation: successPop 0.5s ease both;
+}
+@keyframes successPop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.success-message h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--success);
+  margin-bottom: 8px;
+}
+.success-message p { color: var(--gray); font-size: 0.95rem; margin-bottom: 16px; }
+
+.success-info-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  border: 1px solid #fcd34d;
+  border-radius: 12px;
+  padding: 14px 20px;
+  color: #92400e;
+  font-size: 0.88rem;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  text-align: left;
+  line-height: 1.6;
+}
+.success-info-note i {
+  color: #d97706;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.success-actions { margin-top: 8px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.action-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.action-btn.close-btn {
+  background: transparent;
+  border: 2px solid var(--navy);
+  color: var(--navy);
+}
+.action-btn.close-btn:hover { background: var(--navy); color: var(--white); }
+
+/* ===== Admin Trigger ===== */
+.admin-trigger-wrapper { text-align: center; padding: 0 24px 60px; }
+.admin-trigger-btn {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+.admin-trigger-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* ===== Footer ===== */
+.footer { background: var(--navy); color: rgba(255, 255, 255, 0.85); padding: 48px 24px 32px; text-align: center; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-logos { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 24px; }
+.footer-logos img { height: 48px; width: auto; opacity: 0.85; transition: opacity 0.3s ease; }
+.footer-logos img:hover { opacity: 1; }
+.footer-divider { width: 60px; height: 3px; background: var(--gold); margin: 0 auto 24px; border-radius: 2px; }
+.footer p { font-size: 0.9rem; margin-bottom: 8px; color: rgba(255, 255, 255, 0.7); }
+.footer .copyright {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: var(--gold-light);
+  font-size: 0.95rem;
+}
+.footer .designed { font-size: 0.82rem; color: rgba(255, 255, 255, 0.5); margin-top: 4px; }
+.footer .designed i { color: #ef4444; animation: heartbeat 1.5s ease infinite; }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ===== Admin Modal ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10, 31, 68, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+.modal-overlay.show { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-header {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--white);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.modal-header h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.modal-header h3 i { color: var(--gold); }
+.modal-close {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: var(--white);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.modal-close:hover { background: var(--danger); transform: rotate(90deg); }
+.modal-body { padding: 24px; overflow-y: auto; flex: 1; }
+
+/* ===== Password Screen ===== */
+.password-screen { text-align: center; padding: 30px 20px; }
+.password-screen .lock-icon {
+  width: 70px; height: 70px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 28px;
+  color: #d97706;
+}
+.password-screen h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.password-screen p { color: var(--gray); font-size: 0.9rem; margin-bottom: 20px; }
+.password-input { max-width: 320px; margin: 0 auto 16px; position: relative; }
+.password-input input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: var(--off-white);
+}
+.password-input input:focus {
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
+}
+.password-input .input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  font-size: 16px;
+}
+.password-btn {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--white);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.password-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(10, 31, 68, 0.3); }
+.password-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 12px;
+  display: none;
+  font-weight: 500;
+}
+.password-error.show { display: block; animation: shake 0.4s ease; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ===== Data Screen ===== */
+.data-screen { display: none; }
+.data-screen.show { display: block; }
+.data-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
+.stat-box {
+  background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid #c7d2fe;
+}
+.stat-box .stat-value {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-box .stat-label {
+  font-size: 0.75rem;
+  color: var(--gray);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid #e5e7eb; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.data-table thead { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: var(--white); }
+.data-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.data-table td { padding: 14px 16px; border-bottom: 1px solid #f3f4f6; color: var(--navy); }
+.data-table tbody tr { transition: background 0.2s ease; }
+.data-table tbody tr:hover { background: #f9fafb; }
+.roll-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.whatsapp-link {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.whatsapp-link:hover { text-decoration: underline; }
+.loading-spinner { text-align: center; padding: 40px 20px; color: var(--gray); }
+.loading-spinner i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+  display: block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.empty-state { text-align: center; padding: 50px 20px; color: var(--gray); }
+.empty-state i { font-size: 3rem; color: #d1d5db; margin-bottom: 16px; display: block; }
+.refresh-btn {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+.refresh-btn:hover { background: var(--navy); color: var(--white); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; gap: 12px; }
+  .header-notice { font-size: 12px; padding: 8px 16px; }
+  .logo-area img { height: 42px; }
+  .hero { padding: 50px 20px 70px; }
+  .hero-question { padding: 12px 22px; font-size: 0.95rem; }
+  .reg-card { padding: 28px 20px; }
+  .reg-form .form-row { grid-template-columns: 1fr; gap: 0; }
+  .reg-header h2 { font-size: 1.3rem; }
+  .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+  .cards-section { padding-bottom: 40px; }
+  .card { padding: 32px 24px 28px; }
+  .footer-logos { gap: 16px; }
+  .footer-logos img { height: 38px; }
+  .data-stats { grid-template-columns: 1fr 1fr; }
+  .modal-box { max-height: 90vh; }
+  .data-table th, .data-table td { padding: 10px 12px; font-size: 0.8rem; }
+}
+@media (max-width: 400px) {
+  .logo-text .college-name { font-size: 13px; }
+  .logo-text .club-name { font-size: 10px; }
+  .hero h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <img src="img/রংপুর_সরকারি_কলেজ.jpg" alt="RGC Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'"> <div class="logo-text">
+        <span class="college-name">Rangpur Govt College</span>
+        <span class="club-name">Business Studies</span>
+      </div>
+      <img src="img/logo.jpg" alt="Business Club Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'">
+     
+    </div>
+    <div class="header-notice">
+      <i class="fas fa-bullhorn"></i>
+      <span>Welcome Students!</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Business <span class="highlight">Studies</span></h1>
+    <p class="subtitle">
+      <i class="fas fa-graduation-cap"></i>
+      Your ultimate hub for academic success and classes.
+    </p>
+    <div class="hero-question">
+      <i class="fas fa-calendar-check"></i>
+      আজ কি আমাদের ক্লাস হবে?
+    </div>
+  </div>
+</section>
+
+<!-- ===== CARDS SECTION ===== -->
+<section class="cards-section">
+  <div class="cards-grid">
+
+    <!-- WhatsApp Card -->
+    <div class="card whatsapp">
+      <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
+      <h3>WhatsApp Group</h3>
+      <p>ক্লাস সংক্রান্ত সকল আপডেট ও নোটিফিকেশনের জন্য আমাদের WhatsApp গ্রুপে জয়েন করুন।</p>
+      <button onclick="showRegistrationForm()" class="card-btn whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        Join WhatsApp Group
+      </button>
+      <div class="info-popup">
+        <i class="fas fa-info-circle popup-icon"></i>
+        <div class="popup-text">
+          <strong>হ্যাঁ! আমাদের সব ক্লাসের রুটিন ও আপডেট এখানেই দেওয়া হবে।</strong>
+          বাটনটিতে ক্লিক করে রেজিস্ট্রেশন করুন। এডমিন আপনাকে manually গ্রুপে add করবে।
+          <span class="en">Click the button to register. Admin will manually add you to the group.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Facebook Card -->
+    <div class="card facebook">
+      <div class="card-icon"><i class="fab fa-facebook-f"></i></div>
+      <h3>Facebook Group</h3>
+      <p>আমাদের ফেসবুক গ্রুপে যুক্ত হয়ে ডিসকাশন ও স্টাডি মেটেরিয়ালস সংগ্রহ করুন।</p>
+      <a href="https://www.facebook.com/profile.php?id=61595024910092" target="_blank" class="card-btn facebook-btn">
+        <i class="fab fa-facebook-f"></i>
+        Join Facebook Group
+      </a>
+      <div class="info-popup">
+        <i class="fas fa-info-circle popup-icon"></i>
+        <div class="popup-text">
+          <strong>আমাদের ফেসবুক গ্রুপে সরাসরি যুক্ত হোন।</strong>
+          বাটনটিতে ক্লিক করলে সরাসরি Facebook গ্রুপ খুলবে।
+          <span class="en">Click the button to directly open our Facebook group.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== REGISTRATION FORM (Hidden, shows on WhatsApp button click) ===== -->
+<section class="registration-section" id="registrationSection">
+  <div class="reg-card">
+
+    <!-- Form Wrapper -->
+    <div id="regFormWrapper">
+      <div class="reg-header">
+        <div class="reg-icon"><i class="fab fa-whatsapp"></i></div>
+        <h2>WhatsApp Group Registration</h2>
+        <p>গ্রুপে যুক্ত হতে নিচের ফর্মটি পূরণ করুন। আমরা আপনাকে manually add করে দেব।</p>
+      </div>
+
+      <form class="reg-form" id="registrationForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="studentName">পূর্ণ নাম <span class="required">*</span></label>
+            <input type="text" id="studentName" placeholder="আপনার নাম লিখুন" required>
+            <i class="fas fa-user input-icon"></i>
+          </div>
+          <div class="form-group">
+            <label for="studentRoll">রোল নম্বর <span class="required">*</span></label>
+            <input type="text" id="studentRoll" placeholder="আপনার রোল নম্বর" required>
+            <i class="fas fa-id-card input-icon"></i>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="studentWhatsApp">WhatsApp নম্বর <span class="required">*</span></label>
+          <input type="tel" id="studentWhatsApp" placeholder="01XXXXXXXXX" pattern="01[0-9]{9}" maxlength="11" required>
+          <i class="fab fa-whatsapp input-icon"></i>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <i class="fas fa-paper-plane"></i>
+          Register Now
+        </button>
+      </form>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h3>সফলভাবে রেজিস্ট্রেশন হয়েছে! 🎉</h3>
+      <p>আপনার তথ্য আমাদের কাছে জমা হয়েছে।</p>
+      <div class="success-info-note">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <strong>পরবর্তী ধাপ:</strong> আমাদের এডমিন আপনার WhatsApp নম্বরে যোগাযোগ করে গ্রুপে যুক্ত করে দেবেন। অনুগ্রহ করে অপেক্ষা করুন।
+        </div>
+      </div>
+      <div class="success-actions">
+        <button class="action-btn close-btn" onclick="hideRegistrationForm()">
+          <i class="fas fa-times"></i>
+          বন্ধ করুন
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ADMIN TRIGGER ===== -->
+<div class="admin-trigger-wrapper">
+  <button class="admin-trigger-btn" onclick="openAdminModal()">
+    <i class="fas fa-user-shield"></i>
+    Admin Panel
+  </button>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logos">
+      <img  style="border-radius: 7px;" src="img/রংপুর_সরকারি_কলেজ.jpg" alt="RGC" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'">
+      <img style="border-radius: 7px;" src="img/logo.jpg" alt="Business Club" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'">
+    </div>
+    <div class="footer-divider"></div>
+    <p class="copyright">© 2026 Business Studies Hub. All rights reserved.</p>
+    <p class="designed">Designed for Students. <i class="fas fa-heart"></i></p>
+  </div>
+</footer>
+
+<!-- ===== ADMIN MODAL ===== -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3><i class="fas fa-users"></i> Student Registrations</h3>
+      <button class="modal-close" onclick="closeAdminModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Password Screen -->
+      <div class="password-screen" id="passwordScreen">
+        <div class="lock-icon"><i class="fas fa-lock"></i></div>
+        <h4>Admin Access Required</h4>
+        <p>ডেটা দেখতে পাসওয়ার্ড দিন</p>
+        <div class="password-input">
+          <input type="password" id="adminPassword" placeholder="Enter password" onkeypress="if(event.key==='Enter') verifyPassword()">
+          <i class="fas fa-key input-icon"></i>
+        </div>
+        <button class="password-btn" onclick="verifyPassword()">
+          <i class="fas fa-unlock"></i> Unlock
+        </button>
+        <div class="password-error" id="passwordError">
+          <i class="fas fa-exclamation-circle"></i> ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।
+        </div>
+      </div>
+
+      <!-- Data Screen -->
+      <div class="data-screen" id="dataScreen">
+        <div class="data-stats">
+          <div class="stat-box">
+            <div class="stat-value" id="totalCount">0</div>
+            <div class="stat-label">Total Students</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="todayCount">0</div>
+            <div class="stat-label">Registered Today</div>
+          </div>
+        </div>
+        <div style="margin-bottom: 12px; text-align: right;">
+          <button class="refresh-btn" onclick="loadData()">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+        </div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>WhatsApp</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr><td colspan="5"><div class="loading-spinner"><i class="fas fa-spinner"></i>Loading...</div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ⚠️⚠️⚠️ আপনার Apps Script URL এখানে বসান ⚠️⚠️⚠️
+const API_URL = "https://script.google.com/macros/s/AKfycbxUwu-aHLKtbL27qc52YbWtOiKWNu1jKCAZeViii2aPJqOPLB0s1wgdXxRE5-c1G5DIcg/exec";
+
+// ===== Show Registration Form (WhatsApp Button) =====
+function showRegistrationForm() {
+  const section = document.getElementById('registrationSection');
+  const formWrapper = document.getElementById('regFormWrapper');
+  const successMsg = document.getElementById('successMessage');
+
+  // Reset to form view
+  formWrapper.style.display = 'block';
+  successMsg.classList.remove('show');
+  document.getElementById('registrationForm').reset();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-paper-plane"></i> Register Now';
+
+  // Show section
+  section.classList.add('show');
+
+  // Scroll to form
+  setTimeout(() => {
+    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => document.getElementById('studentName').focus(), 500);
+  }, 100);
+}
+
+// ===== Hide Registration Form =====
+function hideRegistrationForm() {
+  const section = document.getElementById('registrationSection');
+  section.classList.remove('show');
+  // Scroll back to WhatsApp card
+  document.querySelector('.card.whatsapp').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ===== Registration Form Submit =====
+const form = document.getElementById('registrationForm');
+const submitBtn = document.getElementById('submitBtn');
+const successMessage = document.getElementById('successMessage');
+const regFormWrapper = document.getElementById('regFormWrapper');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('studentName').value.trim();
+  const roll = document.getElementById('studentRoll').value.trim();
+  const whatsapp = document.getElementById('studentWhatsApp').value.trim();
+
+  // Validation
+  if (!name || !roll || !whatsapp) {
+    alert('সব তথ্য পূরণ করুন!');
+    return;
+  }
+
+  if (!/^01[0-9]{9}$/.test(whatsapp)) {
+    alert('সঠিক WhatsApp নম্বর দিন (যেমন: 01712345678)');
+    return;
+  }
+
+  // Loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+
+  try {
+    await fetch(API_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, roll, whatsapp })
+    });
+
+    setTimeout(() => {
+      regFormWrapper.style.display = 'none';
+      successMessage.classList.add('show');
+    }, 700);
+
+  } catch (error) {
+    console.error('Error:', error);
+    setTimeout(() => {
+      regFormWrapper.style.display = 'none';
+      successMessage.classList.add('show');
+    }, 700);
+  }
+});
+
+// ===== Admin Modal Functions =====
+function openAdminModal() {
+  document.getElementById('adminModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  resetPasswordScreen();
+}
+
+function closeAdminModal() {
+  document.getElementById('adminModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function resetPasswordScreen() {
+  document.getElementById('passwordScreen').innerHTML = `
+    <div class="lock-icon"><i class="fas fa-lock"></i></div>
+    <h4>Admin Access Required</h4>
+    <p>ডেটা দেখতে পাসওয়ার্ড দিন</p>
+    <div class="password-input">
+      <input type="password" id="adminPassword" placeholder="Enter password" onkeypress="if(event.key==='Enter') verifyPassword()">
+      <i class="fas fa-key input-icon"></i>
+    </div>
+    <button class="password-btn" onclick="verifyPassword()">
+      <i class="fas fa-unlock"></i> Unlock
+    </button>
+    <div class="password-error" id="passwordError">
+      <i class="fas fa-exclamation-circle"></i> ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।
+    </div>
+  `;
+  document.getElementById('passwordScreen').style.display = 'block';
+  document.getElementById('dataScreen').classList.remove('show');
+  setTimeout(() => document.getElementById('adminPassword')?.focus(), 300);
+}
+
+document.getElementById('adminModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAdminModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAdminModal();
+});
+
+// ===== Verify Password & Load Data =====
+async function verifyPassword() {
+  const passwordInput = document.getElementById('adminPassword');
+  const password = passwordInput ? passwordInput.value : '';
+
+  if (!password) {
+    const err = document.getElementById('passwordError');
+    if (err) err.classList.add('show');
+    return;
+  }
+
+  document.getElementById('passwordScreen').innerHTML = `
+    <div class="loading-spinner">
+      <i class="fas fa-spinner"></i>
+      Verifying...
+    </div>
+  `;
+
+  try {
+    const response = await fetch(`${API_URL}?action=getData&password=${encodeURIComponent(password)}`);
+    const result = await response.json();
+
+    if (result.status === 'success') {
+      document.getElementById('passwordScreen').style.display = 'none';
+      document.getElementById('dataScreen').classList.add('show');
+      renderData(result.data, result.total);
+    } else {
+      showPasswordError();
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    showPasswordError();
+  }
+}
+
+function showPasswordError() {
+  document.getElementById('passwordScreen').innerHTML = `
+    <div class="lock-icon"><i class="fas fa-lock"></i></div>
+    <h4>Admin Access Required</h4>
+    <p>ডেটা দেখতে পাসওয়ার্ড দিন</p>
+    <div class="password-input">
+      <input type="password" id="adminPassword" placeholder="Enter password" onkeypress="if(event.key==='Enter') verifyPassword()">
+      <i class="fas fa-key input-icon"></i>
+    </div>
+    <button class="password-btn" onclick="verifyPassword()">
+      <i class="fas fa-unlock"></i> Unlock
+    </button>
+    <div class="password-error show" id="passwordError">
+      <i class="fas fa-exclamation-circle"></i> ভুল পাসওয়ার্ড! আবার চেষ্টা করুন।
+    </div>
+  `;
+  setTimeout(() => document.getElementById('adminPassword')?.focus(), 200);
+}
+
+// ===== Render Data =====
+function renderData(data, total) {
+  document.getElementById('totalCount').textContent = total || 0;
+
+  const today = new Date().toLocaleDateString('en-GB');
+  const todayCount = data.filter(row => {
+    return row.date && row.date.toString().includes(today);
+  }).length;
+  document.getElementById('todayCount').textContent = todayCount;
+
+  const tbody = document.getElementById('tableBody');
+
+  if (!data || data.length === 0) {
+    tbody.innerHTML = `
+      <tr><td colspan="5">
+        <div class="empty-state">
+          <i class="fas fa-inbox"></i>
+          <p>এখনো কোনো রেজিস্ট্রেশন হয়নি।</p>
+        </div>
+      </td></tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = data.reverse().map((row, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      <td><strong>${escapeHtml(row.name || '')}</strong></td>
+      <td><span class="roll-badge">${escapeHtml(row.roll || '')}</span></td>
+      <td>
+        <a href="https://wa.me/88${escapeHtml(row.whatsapp || '')}" target="_blank" class="whatsapp-link">
+          <i class="fab fa-whatsapp"></i> ${escapeHtml(row.whatsapp || '')}
+        </a>
+      </td>
+      <td style="font-size: 0.82rem; color: #6b7280;">${escapeHtml(row.date || '')}</td>
+    </tr>
+  `).join('');
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ===== Refresh Admin Data =====
+function loadData() {
+  const passwordInput = document.getElementById('adminPassword');
+  if (passwordInput && passwordInput.value) {
+    verifyPassword();
+  }
+}
+</script>
+
+</body>
+</html>
