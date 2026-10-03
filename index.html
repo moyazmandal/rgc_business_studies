@@ -1113,7 +1113,7 @@ body {
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-  // ============================================================
+// ============================================================
 // ⚠️⚠️⚠️ CONFIGURATION — শুধু এই ২টি লাইন পরিবর্তন করুন ⚠️⚠️⚠️
 // ============================================================
 const API_URL = "https://script.google.com/macros/s/AKfycbyhVexsvHYR9X7xkZQdIXgG7DuzVP9LlV2vidVCkowesdv7Jmk---XEy7JvlzQVBEVuaQ/exec";
@@ -1122,6 +1122,34 @@ const WHATSAPP_GROUP_INVITE = "https://chat.whatsapp.com/IHEuKfS4Wrw3Pwc6PUtJKD"
 
 // Global Password Storage (Admin Login এর জন্য)
 window.adminPassword = "";
+
+
+// ============================================================
+// 📅 DATE FORMATTER — ISO বা যেকোনো Format থেকে DD/MM/YYYY
+// ============================================================
+function formatDate(dateValue) {
+  if (!dateValue) return '';
+  
+  const dateStr = dateValue.toString();
+  
+  // যদি ইতিমধ্যে DD/MM/YYYY Format হয় → সেটাই return করুন
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(dateStr)) {
+    return dateStr;
+  }
+  
+  // যদি ISO Format হয় (2026-03-09T18:00:00.000Z)
+  if (dateStr.includes('T') || /^\d{4}-\d{2}-\d{2}/.test(dateStr)) {
+    const firstTen = dateStr.substring(0, 10); // "2026-03-09"
+    const parts = firstTen.split('-'); // ["2026", "03", "09"]
+    
+    if (parts.length === 3) {
+      // DD/MM/YYYY Format এ return করুন
+      return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+  }
+  
+  return dateStr;
+}
 
 
 // ============================================================
@@ -1170,7 +1198,6 @@ form.addEventListener('submit', async function (e) {
   const roll = document.getElementById('studentRoll').value.trim();
   const whatsapp = document.getElementById('studentWhatsApp').value.trim();
 
-  // Validation
   if (!name || !roll || !whatsapp) {
     alert('সব তথ্য পূরণ করুন!');
     return;
@@ -1181,7 +1208,6 @@ form.addEventListener('submit', async function (e) {
     return;
   }
 
-  // Loading State
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
 
@@ -1196,16 +1222,13 @@ form.addEventListener('submit', async function (e) {
     console.error('Error:', error);
   }
 
-  // Success Message দেখান
   setTimeout(() => {
     regFormWrapper.style.display = 'none';
     successMessage.classList.add('show');
 
-    // WhatsApp Invite Button এ link সেট
     const inviteBtn = document.getElementById('whatsappInviteBtn');
     if (inviteBtn) inviteBtn.href = WHATSAPP_GROUP_INVITE;
 
-    // ⏱️ Countdown 2s
     let count = 2;
     const countdownEl = document.getElementById('countdownText');
     if (countdownEl) {
@@ -1222,7 +1245,6 @@ form.addEventListener('submit', async function (e) {
       }, 1000);
     }
 
-    // ⏱️ Auto WhatsApp Open after 2s
     setTimeout(() => {
       const newWindow = window.open(WHATSAPP_GROUP_INVITE, '_blank');
       if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
@@ -1324,7 +1346,6 @@ async function verifyPassword() {
     const result = await response.json();
 
     if (result.status === 'success') {
-      // Password সংরক্ষণ করুন
       window.adminPassword = password;
       
       document.getElementById('passwordScreen').style.display = 'none';
@@ -1360,33 +1381,32 @@ function showPasswordError() {
 
 
 // ============================================================
-// 📊 Render Data (Admin Table) — Fixed Today Count
+// 📊 Render Data (Admin Table) — Multi-Format Date Support
 // ============================================================
 function renderData(data, total) {
   document.getElementById('totalCount').textContent = total || 0;
 
-  // ⭐ আজকের তারিখ বের করুন (DD/MM/YYYY Format)
+  // ⭐ আজকের তারিখ — সব Format এ
   const today = new Date();
-  const todayStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
-  const todayISO = today.toISOString().split('T')[0]; // YYYY-MM-DD
+  const todayDMY = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+  const todayYMD = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  const todayISO = today.toISOString().split('T')[0];
   
-  // Debug: Console এ দেখান
   console.log('=== Today Check ===');
-  console.log('Today DD/MM/YYYY:', todayStr);
+  console.log('Today DMY:', todayDMY);
+  console.log('Today YMD:', todayYMD);
   console.log('Today ISO:', todayISO);
-  console.log('Total Students:', data.length);
   
-  // ⭐ Today Count বের করুন — সব Date Format Handle করে
+  // ⭐ Today Count — সব Format Handle
   const todayCount = data.filter(row => {
     if (!row.date) return false;
     const dateStr = row.date.toString();
-    
-    // DD/MM/YYYY অথবা YYYY-MM-DD — দুইটা Format Check
-    return dateStr.includes(todayStr) || dateStr.includes(todayISO);
+    return dateStr.includes(todayDMY) || 
+           dateStr.includes(todayYMD) || 
+           dateStr.includes(todayISO);
   }).length;
   
   console.log('Today Count:', todayCount);
-  
   document.getElementById('todayCount').textContent = todayCount;
 
   const tbody = document.getElementById('tableBody');
@@ -1430,7 +1450,7 @@ function renderData(data, total) {
             <i class="fab fa-whatsapp"></i> ${escapeHtml(row.whatsapp || '')}
           </a>
         </td>
-        <td style="font-size: 0.82rem; color: #6b7280;">${escapeHtml(row.date || '')}</td>
+        <td style="font-size: 0.82rem; color: #6b7280;">${formatDate(row.date)}</td>
         <td>${statusBadge}</td>
         <td>
           <div class="action-buttons">
@@ -1444,6 +1464,8 @@ function renderData(data, total) {
     `;
   }).join('');
 }
+
+
 // ============================================================
 // ✅ Mark Student as Success
 // ============================================================
@@ -1460,7 +1482,7 @@ async function markSuccess(rowIndex) {
 
     if (result.status === 'success') {
       showToast('✅ Student Success হিসেবে মার্ক করা হয়েছে');
-      loadData();  // ⭐ Auto Refresh
+      loadData();
     } else {
       alert('Status update failed: ' + result.message);
     }
@@ -1472,10 +1494,9 @@ async function markSuccess(rowIndex) {
 
 
 // ============================================================
-// 🗑️ Delete Student — Custom Modal (No Prompt/Confirm)
+// 🗑️ Delete Student — Custom Modal
 // ============================================================
 function deleteStudent(rowIndex, studentName) {
-  // Custom Modal তৈরি করুন
   const modalHTML = `
     <div class="modal-overlay show" id="deleteCustomModal" style="z-index: 10000;">
       <div class="modal-box" style="max-width: 420px;">
@@ -1516,12 +1537,10 @@ function deleteStudent(rowIndex, studentName) {
     </div>
   `;
 
-  // Modal Body তে যোগ করুন
   const tempDiv = document.createElement('div');
   tempDiv.innerHTML = modalHTML;
   document.body.appendChild(tempDiv.firstElementChild);
 
-  // Password Input এ Focus
   setTimeout(() => {
     const input = document.getElementById('deletePasswordInput');
     if (input) {
@@ -1535,9 +1554,6 @@ function deleteStudent(rowIndex, studentName) {
   }, 100);
 }
 
-// ============================================================
-// ✅ Confirm Delete
-// ============================================================
 async function confirmDelete(rowIndex, studentName) {
   const passwordInput = document.getElementById('deletePasswordInput');
   const errorMsg = document.getElementById('deleteErrorMsg');
@@ -1548,24 +1564,17 @@ async function confirmDelete(rowIndex, studentName) {
     return;
   }
 
-  // Modal বন্ধ করুন
   closeDeleteModal();
-
-  // Toast দেখান
   showToast('⏳ Deleting...');
 
   try {
     const url = `${API_URL}?action=deleteRow&password=${encodeURIComponent(password)}&rowIndex=${rowIndex}&t=${Date.now()}`;
-    console.log('Delete URL:', url);
-
     const response = await fetch(url);
     const result = await response.json();
-    console.log('Delete Result:', result);
 
     if (result.status === 'success') {
       showToast('✅ Student ডিলিট করা হয়েছে');
 
-      // ⭐ Refresh Data
       setTimeout(async () => {
         const refreshUrl = `${API_URL}?action=getData&password=${encodeURIComponent(window.adminPassword)}&t=${Date.now()}`;
         const refreshResponse = await fetch(refreshUrl);
@@ -1573,7 +1582,6 @@ async function confirmDelete(rowIndex, studentName) {
 
         if (refreshResult.status === 'success') {
           renderData(refreshResult.data, refreshResult.total);
-          console.log('✅ Refreshed. Total:', refreshResult.total);
         }
       }, 500);
 
@@ -1589,13 +1597,11 @@ async function confirmDelete(rowIndex, studentName) {
   }
 }
 
-// ============================================================
-// ❌ Close Delete Modal
-// ============================================================
 function closeDeleteModal() {
   const modal = document.getElementById('deleteCustomModal');
   if (modal) modal.remove();
 }
+
 
 // ============================================================
 // 🔄 Refresh Data (Top-Right Button)
@@ -1608,7 +1614,6 @@ async function loadData() {
     return;
   }
 
-  // Loading spinner দেখান
   const tbody = document.getElementById('tableBody');
   tbody.innerHTML = `
     <tr><td colspan="7">
