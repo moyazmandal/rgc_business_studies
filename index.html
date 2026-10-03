@@ -1116,7 +1116,8 @@ body {
   // ============================================================
 // ⚠️⚠️⚠️ CONFIGURATION — শুধু এই ২টি লাইন পরিবর্তন করুন ⚠️⚠️⚠️
 // ============================================================
-const API_URL = "https://script.google.com/macros/s/AKfycbxUwu-aHLKtbL27qc52YbWtOiKWNu1jKCAZeViii2aPJqOPLB0s1wgdXxRE5-c1G5DIcg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyhVexsvHYR9X7xkZQdIXgG7DuzVP9LlV2vidVCkowesdv7Jmk---XEy7JvlzQVBEVuaQ/exec";
+
 const WHATSAPP_GROUP_INVITE = "https://chat.whatsapp.com/IHEuKfS4Wrw3Pwc6PUtJKD";
 
 // Global Password Storage (Admin Login এর জন্য)
@@ -1359,15 +1360,33 @@ function showPasswordError() {
 
 
 // ============================================================
-// 📊 Render Data (Admin Table)
+// 📊 Render Data (Admin Table) — Fixed Today Count
 // ============================================================
 function renderData(data, total) {
   document.getElementById('totalCount').textContent = total || 0;
 
-  const today = new Date().toLocaleDateString('en-GB');
+  // ⭐ আজকের তারিখ বের করুন (DD/MM/YYYY Format)
+  const today = new Date();
+  const todayStr = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+  const todayISO = today.toISOString().split('T')[0]; // YYYY-MM-DD
+  
+  // Debug: Console এ দেখান
+  console.log('=== Today Check ===');
+  console.log('Today DD/MM/YYYY:', todayStr);
+  console.log('Today ISO:', todayISO);
+  console.log('Total Students:', data.length);
+  
+  // ⭐ Today Count বের করুন — সব Date Format Handle করে
   const todayCount = data.filter(row => {
-    return row.date && row.date.toString().includes(today);
+    if (!row.date) return false;
+    const dateStr = row.date.toString();
+    
+    // DD/MM/YYYY অথবা YYYY-MM-DD — দুইটা Format Check
+    return dateStr.includes(todayStr) || dateStr.includes(todayISO);
   }).length;
+  
+  console.log('Today Count:', todayCount);
+  
   document.getElementById('todayCount').textContent = todayCount;
 
   const tbody = document.getElementById('tableBody');
@@ -1425,8 +1444,6 @@ function renderData(data, total) {
     `;
   }).join('');
 }
-
-
 // ============================================================
 // ✅ Mark Student as Success
 // ============================================================
