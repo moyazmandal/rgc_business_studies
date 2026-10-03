@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+/* ===== VARIABLES ===== */
 :root {
   --navy: #0a1f44;
   --navy-light: #132b5c;
@@ -26,6 +27,7 @@
   --facebook: #1877F2;
   --whatsapp: #25D366;
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -36,7 +38,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 .header {
   background: var(--white);
   padding: 16px 0;
@@ -87,7 +89,7 @@ body {
 }
 .header-notice i { color: var(--gold); font-size: 16px; }
 
-/* ===== Hero ===== */
+/* ===== HERO ===== */
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #1a3a6e 100%);
   padding: 80px 24px 90px;
@@ -151,7 +153,7 @@ body {
 }
 .hero-question i { color: var(--gold); font-size: 1.4em; }
 
-/* ===== Cards Section ===== */
+/* ===== CARDS SECTION ===== */
 .cards-section {
   max-width: 1100px;
   margin: -50px auto 0;
@@ -160,7 +162,6 @@ body {
   z-index: 2;
 }
 .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-
 .card {
   background: var(--white);
   border-radius: var(--radius);
@@ -183,7 +184,6 @@ body {
 .card.facebook::before { background: linear-gradient(90deg, #1877F2, #0d5bbd); }
 .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
 .card:hover::before { height: 7px; }
-
 .card-icon {
   width: 80px; height: 80px;
   border-radius: 50%;
@@ -197,7 +197,6 @@ body {
 .card:hover .card-icon { transform: scale(1.1) rotate(5deg); }
 .card.whatsapp .card-icon { background: linear-gradient(135deg, #e6f9ee, #d0f5e0); color: #25D366; }
 .card.facebook .card-icon { background: linear-gradient(135deg, #e8f0fe, #d4e4fc); color: #1877F2; }
-
 .card h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
@@ -206,7 +205,6 @@ body {
   margin-bottom: 12px;
 }
 .card p { font-size: 0.95rem; color: var(--gray); margin-bottom: 24px; line-height: 1.7; min-height: 52px; }
-
 .card-btn {
   display: inline-flex;
   align-items: center;
@@ -223,18 +221,7 @@ body {
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
-  position: relative;
-  overflow: hidden;
 }
-.card-btn::after {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
-}
-.card-btn:hover::after { left: 100%; }
 .card-btn.whatsapp-btn { background: linear-gradient(135deg, #25D366, #128C7E); }
 .card-btn.whatsapp-btn:hover { background: linear-gradient(135deg, #128C7E, #0d6e5e); transform: scale(1.02); }
 .card-btn.facebook-btn { background: linear-gradient(135deg, #1877F2, #0d5bbd); }
@@ -256,7 +243,7 @@ body {
 .info-popup .popup-text strong { display: block; font-size: 0.9rem; margin-bottom: 4px; color: #78350f; }
 .info-popup .popup-text .en { color: #a16207; font-style: italic; font-size: 0.82rem; }
 
-/* ===== Registration Section (Hidden by default) ===== */
+/* ===== REGISTRATION SECTION ===== */
 .registration-section {
   display: none;
   max-width: 900px;
@@ -267,12 +254,10 @@ body {
   animation: slideDown 0.5s ease both;
 }
 .registration-section.show { display: block; }
-
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .reg-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -289,7 +274,6 @@ body {
   height: 5px;
   background: linear-gradient(90deg, var(--whatsapp), #128C7E);
 }
-
 .reg-header { text-align: center; margin-bottom: 30px; }
 .reg-header .reg-icon {
   width: 70px; height: 70px;
@@ -311,7 +295,6 @@ body {
   margin-bottom: 8px;
 }
 .reg-header p { font-size: 0.95rem; color: var(--gray); max-width: 500px; margin: 0 auto; }
-
 .reg-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-group { margin-bottom: 20px; position: relative; }
 .form-group label {
@@ -350,7 +333,6 @@ body {
   transition: color 0.3s ease;
 }
 .form-group input:focus ~ .input-icon { color: var(--whatsapp); }
-
 .submit-btn {
   width: 100%;
   padding: 16px 24px;
@@ -372,7 +354,7 @@ body {
 .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35); }
 .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-/* ===== Success ===== */
+/* ===== SUCCESS ===== */
 .success-message {
   display: none;
   text-align: center;
@@ -409,7 +391,6 @@ body {
   margin-bottom: 8px;
 }
 .success-message p { color: var(--gray); font-size: 0.95rem; margin-bottom: 16px; }
-
 .success-info-note {
   display: inline-flex;
   align-items: center;
@@ -425,12 +406,7 @@ body {
   text-align: left;
   line-height: 1.6;
 }
-.success-info-note i {
-  color: #d97706;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
+.success-info-note i { color: #d97706; font-size: 20px; flex-shrink: 0; }
 .success-actions { margin-top: 8px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .action-btn {
   padding: 12px 24px;
@@ -453,7 +429,60 @@ body {
 }
 .action-btn.close-btn:hover { background: var(--navy); color: var(--white); }
 
-/* ===== Admin Trigger ===== */
+/* Auto Redirect Box */
+.auto-redirect-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #e6f9ee, #d0f5e0);
+  border: 2px solid #25D366;
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: 480px;
+  margin: 0 auto 20px;
+  text-align: left;
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+.auto-redirect-box i {
+  font-size: 32px;
+  color: #25D366;
+  animation: shake-icon 1s ease-in-out infinite;
+}
+.auto-redirect-box div { display: flex; flex-direction: column; }
+.auto-redirect-box strong {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0a1f44;
+  margin-bottom: 2px;
+}
+.auto-redirect-box span { font-size: 0.85rem; color: #128C7E; font-weight: 500; }
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3); transform: scale(1); }
+  50% { box-shadow: 0 0 25px 5px rgba(37, 211, 102, 0.3); transform: scale(1.01); }
+}
+@keyframes shake-icon {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* WhatsApp Invite Button */
+.action-btn.whatsapp-invite-btn {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 15px 32px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+.action-btn.whatsapp-invite-btn:hover {
+  background: linear-gradient(135deg, #128C7E, #0d6e5e);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
+
+/* ===== ADMIN TRIGGER ===== */
 .admin-trigger-wrapper { text-align: center; padding: 0 24px 60px; }
 .admin-trigger-btn {
   background: transparent;
@@ -477,7 +506,7 @@ body {
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
 }
 
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 .footer { background: var(--navy); color: rgba(255, 255, 255, 0.85); padding: 48px 24px 32px; text-align: center; }
 .footer-inner { max-width: 1100px; margin: 0 auto; }
 .footer-logos { display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 24px; }
@@ -498,7 +527,7 @@ body {
   50% { transform: scale(1.2); }
 }
 
-/* ===== Admin Modal ===== */
+/* ===== MODAL ===== */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -514,13 +543,12 @@ body {
 }
 .modal-overlay.show { display: flex; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
 .modal-box {
   background: var(--white);
   border-radius: var(--radius);
   width: 100%;
-  max-width: 900px;
-  max-height: 85vh;
+  max-width: 1100px;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
@@ -561,12 +589,11 @@ body {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 .modal-close:hover { background: var(--danger); transform: rotate(90deg); }
 .modal-body { padding: 24px; overflow-y: auto; flex: 1; }
 
-/* ===== Password Screen ===== */
+/* ===== PASSWORD SCREEN ===== */
 .password-screen { text-align: center; padding: 30px 20px; }
 .password-screen .lock-icon {
   width: 70px; height: 70px;
@@ -642,7 +669,7 @@ body {
   75% { transform: translateX(8px); }
 }
 
-/* ===== Data Screen ===== */
+/* ===== DATA SCREEN ===== */
 .data-screen { display: none; }
 .data-screen.show { display: block; }
 .data-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
@@ -679,6 +706,7 @@ body {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 .data-table td { padding: 14px 16px; border-bottom: 1px solid #f3f4f6; color: var(--navy); }
 .data-table tbody tr { transition: background 0.2s ease; }
@@ -729,7 +757,104 @@ body {
 }
 .refresh-btn:hover { background: var(--navy); color: var(--white); }
 
-/* ===== Responsive ===== */
+/* ===== STATUS BADGE ===== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+}
+.status-pending {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  animation: pending-pulse 2s ease-in-out infinite;
+}
+.status-success {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #059669;
+  border: 1px solid #6ee7b7;
+}
+@keyframes pending-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.3); }
+  50% { box-shadow: 0 0 12px 3px rgba(220, 38, 38, 0.2); }
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.action-small-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.action-small-btn i { font-size: 0.85em; }
+.success-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+}
+.success-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(16, 185, 129, 0.35);
+}
+.success-disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  padding: 7px 10px;
+}
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.35);
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+/* ===== TOAST ===== */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 15px 40px rgba(10, 31, 68, 0.4);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid var(--gold);
+}
+.toast-notification.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .header-inner { flex-direction: column; gap: 12px; }
   .header-notice { font-size: 12px; padding: 8px 16px; }
@@ -745,80 +870,11 @@ body {
   .footer-logos { gap: 16px; }
   .footer-logos img { height: 38px; }
   .data-stats { grid-template-columns: 1fr 1fr; }
-  .modal-box { max-height: 90vh; }
-  .data-table th, .data-table td { padding: 10px 12px; font-size: 0.8rem; }
-}
-/* Auto Redirect Box */
-.auto-redirect-box {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: linear-gradient(135deg, #e6f9ee, #d0f5e0);
-  border: 2px solid #25D366;
-  border-radius: 12px;
-  padding: 16px 20px;
-  max-width: 480px;
-  margin: 0 auto 20px;
-  text-align: left;
-  animation: pulse-border 1.5s ease-in-out infinite;
-}
-
-.auto-redirect-box i {
-  font-size: 32px;
-  color: #25D366;
-  animation: shake-icon 1s ease-in-out infinite;
-}
-
-.auto-redirect-box div {
-  display: flex;
-  flex-direction: column;
-}
-
-.auto-redirect-box strong {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #0a1f44;
-  margin-bottom: 2px;
-}
-
-.auto-redirect-box span {
-  font-size: 0.85rem;
-  color: #128C7E;
-  font-weight: 500;
-}
-
-@keyframes pulse-border {
-  0%, 100% { 
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3);
-    transform: scale(1);
-  }
-  50% { 
-    box-shadow: 0 0 25px 5px rgba(37, 211, 102, 0.3);
-    transform: scale(1.01);
-  }
-}
-
-@keyframes shake-icon {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-15deg); }
-  75% { transform: rotate(15deg); }
-}
-
-/* WhatsApp Invite Button */
-.action-btn.whatsapp-invite-btn {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 15px 32px;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
-}
-
-.action-btn.whatsapp-invite-btn:hover {
-  background: linear-gradient(135deg, #128C7E, #0d6e5e);
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+  .modal-box { max-height: 95vh; }
+  .data-table th, .data-table td { padding: 8px 6px; font-size: 0.75rem; }
+  .status-badge { font-size: 0.68rem; padding: 4px 8px; }
+  .action-small-btn { padding: 5px 8px; font-size: 0.7rem; }
+  .action-buttons { flex-direction: column; gap: 4px; }
 }
 @media (max-width: 400px) {
   .logo-text .college-name { font-size: 13px; }
@@ -833,12 +889,12 @@ body {
 <header class="header">
   <div class="header-inner">
     <div class="logo-area">
-      <img src="img/রংপুর_সরকারি_কলেজ.jpg" alt="RGC Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'"> <div class="logo-text">
+      <img src="img/রংপুর_সরকারি_কলেজ.jpg" alt="RGC Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22%3ERGC%3C/text%3E%3C/svg%3E'">
+      <div class="logo-text">
         <span class="college-name">Rangpur Govt College</span>
         <span class="club-name">Business Studies</span>
       </div>
-      <img src="img/logo.jpg" alt="Business Club Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'">
-     
+      <img src="img/logo.jpg" alt="Business Club Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2218%22 font-weight=%22bold%22%3EBC%3C/text%3E%3C/svg%3E'">
     </div>
     <div class="header-notice">
       <i class="fas fa-bullhorn"></i>
@@ -865,8 +921,6 @@ body {
 <!-- ===== CARDS SECTION ===== -->
 <section class="cards-section">
   <div class="cards-grid">
-
-    <!-- WhatsApp Card -->
     <div class="card whatsapp">
       <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
       <h3>WhatsApp Group</h3>
@@ -879,17 +933,16 @@ body {
         <i class="fas fa-info-circle popup-icon"></i>
         <div class="popup-text">
           <strong>হ্যাঁ! আমাদের সব ক্লাসের রুটিন ও আপডেট এখানেই দেওয়া হবে।</strong>
-          বাটনটিতে ক্লিক করে রেজিস্ট্রেশন করুন। এডমিন আপনাকে manually গ্রুপে add করবে।
-          <span class="en">Click the button to register. Admin will manually add you to the group.</span>
+          বাটনটিতে ক্লিক করে রেজিস্ট্রেশন করুন।
+          <span class="en">Click the button to register.</span>
         </div>
       </div>
     </div>
 
-    <!-- Facebook Card -->
     <div class="card facebook">
       <div class="card-icon"><i class="fab fa-facebook-f"></i></div>
       <h3>Facebook Page</h3>
-      <p>আমাদের ফেসবুক গ্রুপে যুক্ত হয়ে ডিসকাশন ও স্টাডি মেটেরিয়ালস সংগ্রহ করুন।</p>
+      <p>আমাদের ফেসবুক পেজে যুক্ত হয়ে ডিসকাশন ও স্টাডি মেটেরিয়ালস সংগ্রহ করুন।</p>
       <a href="https://www.facebook.com/profile.php?id=61595024910092" target="_blank" class="card-btn facebook-btn">
         <i class="fab fa-facebook-f"></i>
         Join Facebook Page
@@ -899,24 +952,21 @@ body {
         <div class="popup-text">
           <strong>আমাদের ফেসবুক পেজে সরাসরি যুক্ত হোন।</strong>
           বাটনটিতে ক্লিক করলে সরাসরি Facebook পেজে খুলবে।
-          <span class="en">Click the button to directly open our Facebook page.</span>
+          <span class="en">Click to open our Facebook page.</span>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ===== REGISTRATION FORM (Hidden, shows on WhatsApp button click) ===== -->
+<!-- ===== REGISTRATION FORM ===== -->
 <section class="registration-section" id="registrationSection">
   <div class="reg-card">
-
-    <!-- Form Wrapper -->
     <div id="regFormWrapper">
       <div class="reg-header">
         <div class="reg-icon"><i class="fab fa-whatsapp"></i></div>
         <h2>WhatsApp Group Registration</h2>
-        <p>গ্রুপে যুক্ত হতে নিচের ফর্মটি পূরণ করুন। আমরা আপনাকে manually add করে দেব।</p>
+        <p>গ্রুপে যুক্ত হতে নিচের ফর্মটি পূরণ করুন।</p>
       </div>
 
       <form class="reg-form" id="registrationForm">
@@ -944,37 +994,38 @@ body {
       </form>
     </div>
 
-    <!-- Success Message -->
-<div class="success-message" id="successMessage">
-  <div class="success-icon"><i class="fas fa-check"></i></div>
-  <h3>সফলভাবে রেজিস্ট্রেশন হয়েছে! 🎉</h3>
-  <p>আপনার তথ্য আমাদের কাছে জমা হয়েছে।</p>
-  
-  <div class="auto-redirect-box">
-    <i class="fab fa-whatsapp"></i>
-    <div>
-      <strong>WhatsApp Group খোলা হচ্ছে...</strong>
-      <span id="countdownText">২ সেকেন্ডের মধ্যে স্বয়ংক্রিয়ভাবে খুলে যাবে</span>
-    </div>
-  </div>
+    <div class="success-message" id="successMessage">
+      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <h3>সফলভাবে রেজিস্ট্রেশন হয়েছে! 🎉</h3>
+      <p>আপনার তথ্য আমাদের কাছে জমা হয়েছে।</p>
 
-  <div class="success-info-note">
-    <i class="fas fa-info-circle"></i>
-    <div>
-      <strong>পরবর্তী ধাপ:</strong> গ্রুপে <b>"Request to Join"</b> পাঠান। এডমিন আপনার WhatsApp Number যাচাই করে Accept করবেন।
+      <div class="auto-redirect-box">
+        <i class="fab fa-whatsapp"></i>
+        <div>
+          <strong>WhatsApp Group খোলা হচ্ছে...</strong>
+          <span id="countdownText">২ সেকেন্ডের মধ্যে স্বয়ংক্রিয়ভাবে খুলে যাবে</span>
+        </div>
+      </div>
+
+      <div class="success-info-note">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <strong>পরবর্তী ধাপ:</strong> গ্রুপে <b>"Request to Join"</b> পাঠান। এডমিন আপনার WhatsApp Number যাচাই করে Accept করবেন।
+        </div>
+      </div>
+
+      <div class="success-actions">
+        <a href="#" id="whatsappInviteBtn" target="_blank" class="action-btn whatsapp-invite-btn">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp এখনই খুলুন
+        </a>
+        <button class="action-btn close-btn" onclick="hideRegistrationForm()">
+          <i class="fas fa-times"></i> বন্ধ করুন
+        </button>
+      </div>
     </div>
   </div>
-  
-  <div class="success-actions">
-    <a href="#" id="whatsappInviteBtn" target="_blank" class="action-btn whatsapp-invite-btn">
-      <i class="fab fa-whatsapp"></i>
-      WhatsApp এখনই খুলুন
-    </a>
-    <button class="action-btn close-btn" onclick="hideRegistrationForm()">
-      <i class="fas fa-times"></i> বন্ধ করুন
-    </button>
-  </div>
-</div>
+</section>
 
 <!-- ===== ADMIN TRIGGER ===== -->
 <div class="admin-trigger-wrapper">
@@ -988,8 +1039,8 @@ body {
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logos">
-      <img  style="border-radius: 7px;" src="img/রংপুর_সরকারি_কলেজ.jpg" alt="RGC" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'">
-      <img style="border-radius: 7px;" src="img/logo.jpg" alt="Business Club" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22 font-family=%22Arial%22%3ERGC%3C/text%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2210%22 font-family=%22Arial%22%3EBUSINESS CLUB%3C/text%3E%3C/svg%3E'">
+      <img style="border-radius: 7px;" src="img/রংপুর_সরকারি_কলেজ.jpg" alt="RGC" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2220%22 font-weight=%22bold%22%3ERGC%3C/text%3E%3C/svg%3E'">
+      <img style="border-radius: 7px;" src="img/logo.jpg" alt="Business Club" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a1f44%22 stroke=%22%23d4af37%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2245%22 text-anchor=%22middle%22 fill=%22%23d4af37%22 font-size=%2218%22 font-weight=%22bold%22%3EBC%3C/text%3E%3C/svg%3E'">
     </div>
     <div class="footer-divider"></div>
     <p class="copyright">© 2026 Business Studies Hub. All rights reserved.</p>
@@ -1005,8 +1056,6 @@ body {
       <button class="modal-close" onclick="closeAdminModal()"><i class="fas fa-times"></i></button>
     </div>
     <div class="modal-body">
-
-      <!-- Password Screen -->
       <div class="password-screen" id="passwordScreen">
         <div class="lock-icon"><i class="fas fa-lock"></i></div>
         <h4>Admin Access Required</h4>
@@ -1023,7 +1072,6 @@ body {
         </div>
       </div>
 
-      <!-- Data Screen -->
       <div class="data-screen" id="dataScreen">
         <div class="data-stats">
           <div class="stat-box">
@@ -1049,65 +1097,72 @@ body {
                 <th>Roll</th>
                 <th>WhatsApp</th>
                 <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody id="tableBody">
-              <tr><td colspan="5"><div class="loading-spinner"><i class="fas fa-spinner"></i>Loading...</div></td></tr>
+              <tr><td colspan="7"><div class="loading-spinner"><i class="fas fa-spinner"></i> Loading...</div></td></tr>
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-// ⚠️⚠️⚠️ আপনার Apps Script URL এখানে বসান ⚠️⚠️⚠️
+  // ============================================================
+// ⚠️⚠️⚠️ CONFIGURATION — শুধু এই ২টি লাইন পরিবর্তন করুন ⚠️⚠️⚠️
+// ============================================================
 const API_URL = "https://script.google.com/macros/s/AKfycbxUwu-aHLKtbL27qc52YbWtOiKWNu1jKCAZeViii2aPJqOPLB0s1wgdXxRE5-c1G5DIcg/exec";
-
 const WHATSAPP_GROUP_INVITE = "https://chat.whatsapp.com/IHEuKfS4Wrw3Pwc6PUtJKD";
 
-// ===== Show Registration Form (WhatsApp Button) =====
+// Global Password Storage (Admin Login এর জন্য)
+window.adminPassword = "";
+
+
+// ============================================================
+// 🎯 Registration Form: Show / Hide
+// ============================================================
 function showRegistrationForm() {
   const section = document.getElementById('registrationSection');
   const formWrapper = document.getElementById('regFormWrapper');
   const successMsg = document.getElementById('successMessage');
 
-  // Reset to form view
   formWrapper.style.display = 'block';
   successMsg.classList.remove('show');
   document.getElementById('registrationForm').reset();
+  
   const btn = document.getElementById('submitBtn');
   btn.disabled = false;
   btn.innerHTML = '<i class="fas fa-paper-plane"></i> Register Now';
 
-  // Show section
   section.classList.add('show');
 
-  // Scroll to form
   setTimeout(() => {
     section.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setTimeout(() => document.getElementById('studentName').focus(), 500);
   }, 100);
 }
 
-// ===== Hide Registration Form =====
 function hideRegistrationForm() {
   const section = document.getElementById('registrationSection');
   section.classList.remove('show');
-  // Scroll back to WhatsApp card
   document.querySelector('.card.whatsapp').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// ===== Registration Form Submit =====
+
+// ============================================================
+// 📝 Registration Form Submit
+// ============================================================
 const form = document.getElementById('registrationForm');
 const submitBtn = document.getElementById('submitBtn');
 const successMessage = document.getElementById('successMessage');
 const regFormWrapper = document.getElementById('regFormWrapper');
 
-form.addEventListener('submit', async function(e) {
+form.addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const name = document.getElementById('studentName').value.trim();
@@ -1125,7 +1180,7 @@ form.addEventListener('submit', async function(e) {
     return;
   }
 
-  // Loading state
+  // Loading State
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
 
@@ -1136,44 +1191,72 @@ form.addEventListener('submit', async function(e) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, roll, whatsapp })
     });
-
-    // Success message দেখান
-    setTimeout(() => {
-      regFormWrapper.style.display = 'none';
-      successMessage.classList.add('show');
-
-      // ⏱️ ২ সেকেন্ড পরে Auto WhatsApp Group খুলবে
-      setTimeout(() => {
-        // নতুন tab এ WhatsApp Invite Link খুলবে
-        window.open(WHATSAPP_GROUP_INVITE, '_blank');
-
-        // Form auto close করবে
-        setTimeout(() => {
-          hideRegistrationForm();
-        }, 500);
-      }, 2000);
-
-    }, 700);
-
   } catch (error) {
     console.error('Error:', error);
-    // Error হলেও data save হয়েছে ধরে নিয়ে success দেখাই
-    setTimeout(() => {
-      regFormWrapper.style.display = 'none';
-      successMessage.classList.add('show');
-
-      setTimeout(() => {
-        window.open(WHATSAPP_GROUP_INVITE, '_blank');
-        setTimeout(() => {
-          hideRegistrationForm();
-        }, 500);
-      }, 2000);
-
-    }, 700);
   }
+
+  // Success Message দেখান
+  setTimeout(() => {
+    regFormWrapper.style.display = 'none';
+    successMessage.classList.add('show');
+
+    // WhatsApp Invite Button এ link সেট
+    const inviteBtn = document.getElementById('whatsappInviteBtn');
+    if (inviteBtn) inviteBtn.href = WHATSAPP_GROUP_INVITE;
+
+    // ⏱️ Countdown 2s
+    let count = 2;
+    const countdownEl = document.getElementById('countdownText');
+    if (countdownEl) {
+      countdownEl.textContent = `${count} সেকেন্ডের মধ্যে স্বয়ংক্রিয়ভাবে খুলে যাবে`;
+
+      const countdownInterval = setInterval(() => {
+        count--;
+        if (count > 0) {
+          countdownEl.textContent = `${count} সেকেন্ডের মধ্যে স্বয়ংক্রিয়ভাবে খুলে যাবে`;
+        } else {
+          countdownEl.textContent = 'এখনই খুলছে...';
+          clearInterval(countdownInterval);
+        }
+      }, 1000);
+    }
+
+    // ⏱️ Auto WhatsApp Open after 2s
+    setTimeout(() => {
+      const newWindow = window.open(WHATSAPP_GROUP_INVITE, '_blank');
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+        showPopupBlockedWarning();
+      } else {
+        setTimeout(() => hideRegistrationForm(), 500);
+      }
+    }, 2000);
+
+  }, 700);
 });
 
-// ===== Admin Modal Functions =====
+
+// ============================================================
+// ⚠️ Popup Blocked Warning
+// ============================================================
+function showPopupBlockedWarning() {
+  const countdownEl = document.getElementById('countdownText');
+  if (countdownEl) {
+    countdownEl.innerHTML = '⚠️ Browser Popup Block করেছে! উপরের <b>"WhatsApp এখনই খুলুন"</b> বাটনে ক্লিক করুন।';
+    countdownEl.style.color = '#dc2626';
+    countdownEl.style.fontWeight = '700';
+  }
+
+  const inviteBtn = document.getElementById('whatsappInviteBtn');
+  if (inviteBtn) {
+    inviteBtn.style.boxShadow = '0 0 30px 10px rgba(37, 211, 102, 0.6)';
+    inviteBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+
+// ============================================================
+// 🔐 Admin Modal — Open / Close
+// ============================================================
 function openAdminModal() {
   document.getElementById('adminModal').classList.add('show');
   document.body.style.overflow = 'hidden';
@@ -1206,15 +1289,18 @@ function resetPasswordScreen() {
   setTimeout(() => document.getElementById('adminPassword')?.focus(), 300);
 }
 
-document.getElementById('adminModal').addEventListener('click', function(e) {
+document.getElementById('adminModal').addEventListener('click', function (e) {
   if (e.target === this) closeAdminModal();
 });
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeAdminModal();
 });
 
-// ===== Verify Password & Load Data =====
+
+// ============================================================
+// 🔓 Verify Password (Admin Login)
+// ============================================================
 async function verifyPassword() {
   const passwordInput = document.getElementById('adminPassword');
   const password = passwordInput ? passwordInput.value : '';
@@ -1237,6 +1323,9 @@ async function verifyPassword() {
     const result = await response.json();
 
     if (result.status === 'success') {
+      // Password সংরক্ষণ করুন
+      window.adminPassword = password;
+      
       document.getElementById('passwordScreen').style.display = 'none';
       document.getElementById('dataScreen').classList.add('show');
       renderData(result.data, result.total);
@@ -1268,7 +1357,10 @@ function showPasswordError() {
   setTimeout(() => document.getElementById('adminPassword')?.focus(), 200);
 }
 
-// ===== Render Data =====
+
+// ============================================================
+// 📊 Render Data (Admin Table)
+// ============================================================
 function renderData(data, total) {
   document.getElementById('totalCount').textContent = total || 0;
 
@@ -1282,7 +1374,7 @@ function renderData(data, total) {
 
   if (!data || data.length === 0) {
     tbody.innerHTML = `
-      <tr><td colspan="5">
+      <tr><td colspan="7">
         <div class="empty-state">
           <i class="fas fa-inbox"></i>
           <p>এখনো কোনো রেজিস্ট্রেশন হয়নি।</p>
@@ -1292,43 +1384,277 @@ function renderData(data, total) {
     return;
   }
 
-  tbody.innerHTML = data.reverse().map((row, i) => `
-    <tr>
-      <td>${i + 1}</td>
-      <td><strong>${escapeHtml(row.name || '')}</strong></td>
-      <td><span class="roll-badge">${escapeHtml(row.roll || '')}</span></td>
-      <td>
-        <a href="https://wa.me/88${escapeHtml(row.whatsapp || '')}" target="_blank" class="whatsapp-link">
-          <i class="fab fa-whatsapp"></i> ${escapeHtml(row.whatsapp || '')}
-        </a>
-      </td>
-      <td style="font-size: 0.82rem; color: #6b7280;">${escapeHtml(row.date || '')}</td>
-    </tr>
-  `).join('');
+  // 🔢 Roll Number অনুযায়ী Sort (ascending)
+  const sortedData = [...data].sort((a, b) => {
+    const rollA = parseInt(a.roll) || 0;
+    const rollB = parseInt(b.roll) || 0;
+    return rollA - rollB;
+  });
+
+  tbody.innerHTML = sortedData.map((row, i) => {
+    const isSuccess = row.status === "success";
+    const statusBadge = isSuccess
+      ? `<span class="status-badge status-success"><i class="fas fa-check-circle"></i> Success</span>`
+      : `<span class="status-badge status-pending"><i class="fas fa-clock"></i> Pending</span>`;
+
+    const successBtn = isSuccess
+      ? `<button class="action-small-btn success-disabled" disabled><i class="fas fa-check"></i> Done</button>`
+      : `<button class="action-small-btn success-btn" onclick="markSuccess(${row.index})"><i class="fas fa-check"></i> Success</button>`;
+
+    return `
+      <tr>
+        <td>${i + 1}</td>
+        <td><strong>${escapeHtml(row.name || '')}</strong></td>
+        <td><span class="roll-badge">${escapeHtml(row.roll || '')}</span></td>
+        <td>
+          <a href="https://wa.me/88${escapeHtml(row.whatsapp || '')}" target="_blank" class="whatsapp-link">
+            <i class="fab fa-whatsapp"></i> ${escapeHtml(row.whatsapp || '')}
+          </a>
+        </td>
+        <td style="font-size: 0.82rem; color: #6b7280;">${escapeHtml(row.date || '')}</td>
+        <td>${statusBadge}</td>
+        <td>
+          <div class="action-buttons">
+            ${successBtn}
+            <button class="action-small-btn delete-btn" onclick="deleteStudent(${row.index}, '${escapeHtml(row.name)}')">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
 }
 
+
+// ============================================================
+// ✅ Mark Student as Success
+// ============================================================
+async function markSuccess(rowIndex) {
+  const password = window.adminPassword;
+  if (!password) {
+    alert('Please re-login!');
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API_URL}?action=updateStatus&password=${encodeURIComponent(password)}&rowIndex=${rowIndex}&status=success`);
+    const result = await response.json();
+
+    if (result.status === 'success') {
+      showToast('✅ Student Success হিসেবে মার্ক করা হয়েছে');
+      loadData();  // ⭐ Auto Refresh
+    } else {
+      alert('Status update failed: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Connection error!');
+  }
+}
+
+
+// ============================================================
+// 🗑️ Delete Student — Custom Modal (No Prompt/Confirm)
+// ============================================================
+function deleteStudent(rowIndex, studentName) {
+  // Custom Modal তৈরি করুন
+  const modalHTML = `
+    <div class="modal-overlay show" id="deleteCustomModal" style="z-index: 10000;">
+      <div class="modal-box" style="max-width: 420px;">
+        <div class="modal-header" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
+          <h3 style="color: white;"><i class="fas fa-trash"></i> Delete Student</h3>
+          <button class="modal-close" onclick="closeDeleteModal()" style="color: white;"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body" style="text-align: center; padding: 30px 24px;">
+          <div style="font-size: 50px; color: #ef4444; margin-bottom: 16px;">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h4 style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 8px; color: #0a1f44;">
+            "${studentName}" কে Delete করবেন?
+          </h4>
+          <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 20px;">
+            এই কাজটি ফিরিয়ে আনা যাবে না!
+          </p>
+          
+          <div class="password-input" style="max-width: 100%;">
+            <input type="password" id="deletePasswordInput" placeholder="Delete Password দিন" autocomplete="off" style="width: 100%; padding: 14px 16px 14px 46px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 0.95rem; outline: none;">
+            <i class="fas fa-key input-icon" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #6b7280;"></i>
+          </div>
+          
+          <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button onclick="closeDeleteModal()" style="flex: 1; padding: 12px; border: 2px solid #0a1f44; background: transparent; color: #0a1f44; border-radius: 10px; font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+              <i class="fas fa-times"></i> Cancel
+            </button>
+            <button onclick="confirmDelete(${rowIndex}, '${studentName.replace(/'/g, "\\'")}')" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; border: none; border-radius: 10px; font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+              <i class="fas fa-trash"></i> Delete
+            </button>
+          </div>
+          
+          <div id="deleteErrorMsg" style="color: #ef4444; font-size: 0.85rem; margin-top: 12px; display: none;">
+            <i class="fas fa-exclamation-circle"></i> Password দিন!
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Modal Body তে যোগ করুন
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = modalHTML;
+  document.body.appendChild(tempDiv.firstElementChild);
+
+  // Password Input এ Focus
+  setTimeout(() => {
+    const input = document.getElementById('deletePasswordInput');
+    if (input) {
+      input.focus();
+      input.onkeypress = (e) => {
+        if (e.key === 'Enter') {
+          confirmDelete(rowIndex, studentName);
+        }
+      };
+    }
+  }, 100);
+}
+
+// ============================================================
+// ✅ Confirm Delete
+// ============================================================
+async function confirmDelete(rowIndex, studentName) {
+  const passwordInput = document.getElementById('deletePasswordInput');
+  const errorMsg = document.getElementById('deleteErrorMsg');
+  const password = passwordInput ? passwordInput.value.trim() : '';
+
+  if (!password) {
+    if (errorMsg) errorMsg.style.display = 'block';
+    return;
+  }
+
+  // Modal বন্ধ করুন
+  closeDeleteModal();
+
+  // Toast দেখান
+  showToast('⏳ Deleting...');
+
+  try {
+    const url = `${API_URL}?action=deleteRow&password=${encodeURIComponent(password)}&rowIndex=${rowIndex}&t=${Date.now()}`;
+    console.log('Delete URL:', url);
+
+    const response = await fetch(url);
+    const result = await response.json();
+    console.log('Delete Result:', result);
+
+    if (result.status === 'success') {
+      showToast('✅ Student ডিলিট করা হয়েছে');
+
+      // ⭐ Refresh Data
+      setTimeout(async () => {
+        const refreshUrl = `${API_URL}?action=getData&password=${encodeURIComponent(window.adminPassword)}&t=${Date.now()}`;
+        const refreshResponse = await fetch(refreshUrl);
+        const refreshResult = await refreshResponse.json();
+
+        if (refreshResult.status === 'success') {
+          renderData(refreshResult.data, refreshResult.total);
+          console.log('✅ Refreshed. Total:', refreshResult.total);
+        }
+      }, 500);
+
+    } else if (result.message === 'Wrong password!') {
+      showToast('❌ ভুল Delete Password!');
+    } else {
+      showToast('❌ Delete failed: ' + result.message);
+    }
+
+  } catch (error) {
+    console.error('Delete error:', error);
+    showToast('❌ Connection error!');
+  }
+}
+
+// ============================================================
+// ❌ Close Delete Modal
+// ============================================================
+function closeDeleteModal() {
+  const modal = document.getElementById('deleteCustomModal');
+  if (modal) modal.remove();
+}
+
+// ============================================================
+// 🔄 Refresh Data (Top-Right Button)
+// ============================================================
+async function loadData() {
+  const adminPassword = window.adminPassword;
+
+  if (!adminPassword) {
+    alert('Please re-login!');
+    return;
+  }
+
+  // Loading spinner দেখান
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = `
+    <tr><td colspan="7">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner"></i>
+        Refreshing...
+      </div>
+    </td></tr>
+  `;
+
+  try {
+    const response = await fetch(`${API_URL}?action=getData&password=${encodeURIComponent(adminPassword)}&t=${Date.now()}`);
+    const result = await response.json();
+
+    if (result.status === 'success') {
+      renderData(result.data, result.total);
+      showToast('🔄 Data Refreshed!');
+    } else {
+      alert('Refresh failed: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Connection error!');
+  }
+}
+
+
+// ============================================================
+// 🎨 Toast Notification
+// ============================================================
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'toast-notification';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add('show'), 100);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 2500);
+}
+
+
+// ============================================================
+// 🔒 Helper: Escape HTML
+// ============================================================
 function escapeHtml(text) {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
 }
 
-// ===== Refresh Admin Data =====
-function loadData() {
-  const passwordInput = document.getElementById('adminPassword');
-  if (passwordInput && passwordInput.value) {
-    verifyPassword();
-  }
-}
 
-// ===== WhatsApp Invite Link Button এ সেট করুন =====
-document.addEventListener('DOMContentLoaded', function() {
+// ============================================================
+// ⚙️ DOMContentLoaded
+// ============================================================
+document.addEventListener('DOMContentLoaded', function () {
   const inviteBtn = document.getElementById('whatsappInviteBtn');
   if (inviteBtn) {
     inviteBtn.href = WHATSAPP_GROUP_INVITE;
   }
 });
 </script>
-
 </body>
 </html>
