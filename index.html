@@ -748,6 +748,78 @@ body {
   .modal-box { max-height: 90vh; }
   .data-table th, .data-table td { padding: 10px 12px; font-size: 0.8rem; }
 }
+/* Auto Redirect Box */
+.auto-redirect-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #e6f9ee, #d0f5e0);
+  border: 2px solid #25D366;
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: 480px;
+  margin: 0 auto 20px;
+  text-align: left;
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+.auto-redirect-box i {
+  font-size: 32px;
+  color: #25D366;
+  animation: shake-icon 1s ease-in-out infinite;
+}
+
+.auto-redirect-box div {
+  display: flex;
+  flex-direction: column;
+}
+
+.auto-redirect-box strong {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #0a1f44;
+  margin-bottom: 2px;
+}
+
+.auto-redirect-box span {
+  font-size: 0.85rem;
+  color: #128C7E;
+  font-weight: 500;
+}
+
+@keyframes pulse-border {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 25px 5px rgba(37, 211, 102, 0.3);
+    transform: scale(1.01);
+  }
+}
+
+@keyframes shake-icon {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* WhatsApp Invite Button */
+.action-btn.whatsapp-invite-btn {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 15px 32px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+
+.action-btn.whatsapp-invite-btn:hover {
+  background: linear-gradient(135deg, #128C7E, #0d6e5e);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+}
 @media (max-width: 400px) {
   .logo-text .college-name { font-size: 13px; }
   .logo-text .club-name { font-size: 10px; }
@@ -873,26 +945,36 @@ body {
     </div>
 
     <!-- Success Message -->
-    <div class="success-message" id="successMessage">
-      <div class="success-icon"><i class="fas fa-check"></i></div>
-      <h3>সফলভাবে রেজিস্ট্রেশন হয়েছে! 🎉</h3>
-      <p>আপনার তথ্য আমাদের কাছে জমা হয়েছে।</p>
-      <div class="success-info-note">
-        <i class="fas fa-info-circle"></i>
-        <div>
-          <strong>পরবর্তী ধাপ:</strong> আমাদের এডমিন আপনার WhatsApp নম্বরে যোগাযোগ করে গ্রুপে যুক্ত করে দেবেন। অনুগ্রহ করে অপেক্ষা করুন।
-        </div>
-      </div>
-      <div class="success-actions">
-        <button class="action-btn close-btn" onclick="hideRegistrationForm()">
-          <i class="fas fa-times"></i>
-          বন্ধ করুন
-        </button>
-      </div>
+<div class="success-message" id="successMessage">
+  <div class="success-icon"><i class="fas fa-check"></i></div>
+  <h3>সফলভাবে রেজিস্ট্রেশন হয়েছে! 🎉</h3>
+  <p>আপনার তথ্য আমাদের কাছে জমা হয়েছে।</p>
+  
+  <div class="auto-redirect-box">
+    <i class="fab fa-whatsapp"></i>
+    <div>
+      <strong>WhatsApp Group খোলা হচ্ছে...</strong>
+      <span id="countdownText">২ সেকেন্ডের মধ্যে স্বয়ংক্রিয়ভাবে খুলে যাবে</span>
     </div>
-
   </div>
-</section>
+
+  <div class="success-info-note">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>পরবর্তী ধাপ:</strong> গ্রুপে <b>"Request to Join"</b> পাঠান। এডমিন আপনার WhatsApp Number যাচাই করে Accept করবেন।
+    </div>
+  </div>
+  
+  <div class="success-actions">
+    <a href="#" id="whatsappInviteBtn" target="_blank" class="action-btn whatsapp-invite-btn">
+      <i class="fab fa-whatsapp"></i>
+      WhatsApp এখনই খুলুন
+    </a>
+    <button class="action-btn close-btn" onclick="hideRegistrationForm()">
+      <i class="fas fa-times"></i> বন্ধ করুন
+    </button>
+  </div>
+</div>
 
 <!-- ===== ADMIN TRIGGER ===== -->
 <div class="admin-trigger-wrapper">
@@ -985,6 +1067,8 @@ body {
 // ⚠️⚠️⚠️ আপনার Apps Script URL এখানে বসান ⚠️⚠️⚠️
 const API_URL = "https://script.google.com/macros/s/AKfycbxUwu-aHLKtbL27qc52YbWtOiKWNu1jKCAZeViii2aPJqOPLB0s1wgdXxRE5-c1G5DIcg/exec";
 
+const WHATSAPP_GROUP_INVITE = "https://chat.whatsapp.com/IHEuKfS4Wrw3Pwc6PUtJKD";
+
 // ===== Show Registration Form (WhatsApp Button) =====
 function showRegistrationForm() {
   const section = document.getElementById('registrationSection');
@@ -1053,16 +1137,38 @@ form.addEventListener('submit', async function(e) {
       body: JSON.stringify({ name, roll, whatsapp })
     });
 
+    // Success message দেখান
     setTimeout(() => {
       regFormWrapper.style.display = 'none';
       successMessage.classList.add('show');
+
+      // ⏱️ ২ সেকেন্ড পরে Auto WhatsApp Group খুলবে
+      setTimeout(() => {
+        // নতুন tab এ WhatsApp Invite Link খুলবে
+        window.open(WHATSAPP_GROUP_INVITE, '_blank');
+
+        // Form auto close করবে
+        setTimeout(() => {
+          hideRegistrationForm();
+        }, 500);
+      }, 2000);
+
     }, 700);
 
   } catch (error) {
     console.error('Error:', error);
+    // Error হলেও data save হয়েছে ধরে নিয়ে success দেখাই
     setTimeout(() => {
       regFormWrapper.style.display = 'none';
       successMessage.classList.add('show');
+
+      setTimeout(() => {
+        window.open(WHATSAPP_GROUP_INVITE, '_blank');
+        setTimeout(() => {
+          hideRegistrationForm();
+        }, 500);
+      }, 2000);
+
     }, 700);
   }
 });
@@ -1214,6 +1320,14 @@ function loadData() {
     verifyPassword();
   }
 }
+
+// ===== WhatsApp Invite Link Button এ সেট করুন =====
+document.addEventListener('DOMContentLoaded', function() {
+  const inviteBtn = document.getElementById('whatsappInviteBtn');
+  if (inviteBtn) {
+    inviteBtn.href = WHATSAPP_GROUP_INVITE;
+  }
+});
 </script>
 
 </body>
